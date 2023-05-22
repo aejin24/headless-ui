@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import DropDown from "./components/Dropdown";
 
-function App() {
+export default function App() {
+  const [selected, setSelected] = useState("-- 선택 --");
+  const [isVisible, setIsVisible] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      <h3>DropDown</h3>
+
+      <DropDown
+        isVisible={isVisible}
+        onChange={(activate) => {
+          setSelected(activate);
+          setIsVisible(!isVisible);
+        }}
+      >
+        <DropDown.DropDownButton
+          style={{ width: "200px" }}
+          onClick={() => setIsVisible(!isVisible)}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          {selected}
+        </DropDown.DropDownButton>
+        <DropDown.DropDownItems
+          style={{ width: "200px", display: "flex", flexDirection: "column" }}
+        >
+          <DropDown.DropDownItem>a</DropDown.DropDownItem>
+          <DropDown.DropDownItem>b</DropDown.DropDownItem>
+          <DropDown.DropDownItem>c</DropDown.DropDownItem>
+        </DropDown.DropDownItems>
+      </DropDown>
+    </>
   );
 }
-
-export default App;
