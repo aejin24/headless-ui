@@ -3,22 +3,22 @@ import DropDown from "./components/Dropdown";
 
 export default function App() {
   const [selected, setSelected] = useState("-- 선택 --");
-  const [isVisible, setIsVisible] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
       <h3>DropDown</h3>
 
       <DropDown
-        isVisible={isVisible}
+        isOpen={isOpen}
         onChange={(activate) => {
           setSelected(activate);
-          setIsVisible(!isVisible);
+          setIsOpen(!isOpen);
         }}
       >
         <DropDown.DropDownButton
           style={{ width: "200px" }}
-          onClick={() => setIsVisible(!isVisible)}
+          onClick={() => setIsOpen(!isOpen)}
         >
           {selected}
         </DropDown.DropDownButton>

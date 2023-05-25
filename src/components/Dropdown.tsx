@@ -8,23 +8,23 @@ import React, {
 
 type TDropDownContextProps = {
   onChange: (selected: string) => void;
-  isVisible: boolean;
+  isOpen: boolean;
 };
 
 const DropDownContext = createContext<TDropDownContextProps>({
   onChange: () => {},
-  isVisible: false,
+  isOpen: false,
 });
 
 export default function DropDown({
   onChange,
-  isVisible,
+  isOpen,
   children,
 }: TDropDownContextProps & PropsWithChildren) {
   // ?
   const value = useMemo(() => {
-    return { onChange, isVisible };
-  }, [onChange, isVisible]);
+    return { onChange, isOpen };
+  }, [onChange, isOpen]);
 
   return (
     <DropDownContext.Provider value={value}>
@@ -48,9 +48,9 @@ function DropDownItems({
   children,
   ...props
 }: PropsWithChildren & HTMLAttributes<HTMLDivElement>) {
-  const { isVisible } = useContext(DropDownContext);
+  const { isOpen } = useContext(DropDownContext);
 
-  return isVisible ? <div {...props}>{children}</div> : null;
+  return isOpen ? <div {...props}>{children}</div> : null;
 }
 
 function DropDownItem({
