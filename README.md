@@ -1,3 +1,8 @@
 # headless ui
 
-- Dropdown
+working dir: src/components/\*
+
+- menu
+  - Dropdown
+- modal
+  - GlobalModal
