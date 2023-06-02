@@ -20,7 +20,7 @@ export default function DropDown({
   onChange,
   isOpen,
   children,
-}: TDropDownContextProps & PropsWithChildren) {
+}: PropsWithChildren<TDropDownContextProps>) {
   const value = useMemo(() => {
     return { onChange, isOpen };
   }, [onChange, isOpen]);
@@ -35,7 +35,7 @@ export default function DropDown({
 function DropDownButton({
   children,
   ...props
-}: PropsWithChildren & HTMLAttributes<HTMLButtonElement>) {
+}: PropsWithChildren<HTMLAttributes<HTMLButtonElement>>) {
   return (
     <button type="button" {...props}>
       {children}
@@ -46,7 +46,7 @@ function DropDownButton({
 function DropDownItems({
   children,
   ...props
-}: PropsWithChildren & HTMLAttributes<HTMLDivElement>) {
+}: PropsWithChildren<HTMLAttributes<HTMLDivElement>>) {
   const { isOpen } = useContext(DropDownContext);
 
   return isOpen ? <div {...props}>{children}</div> : null;
@@ -55,7 +55,7 @@ function DropDownItems({
 function DropDownItem({
   children,
   ...props
-}: PropsWithChildren & HTMLAttributes<HTMLButtonElement>) {
+}: PropsWithChildren<HTMLAttributes<HTMLButtonElement>>) {
   const { onChange } = useContext(DropDownContext);
 
   return (
