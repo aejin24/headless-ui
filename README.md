@@ -2,6 +2,8 @@
 
 working dir: src/components/\*
 
+- input
+  - Radio
 - menu
   - Dropdown
 - modal
