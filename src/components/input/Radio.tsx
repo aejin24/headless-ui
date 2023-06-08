@@ -7,7 +7,7 @@ import {
 
 type TRadioContextProps = {
   label: string;
-  handleChange: ({ value }: { value: any }) => void;
+  handleChange?: ({ value }: { value: any }) => void;
 };
 
 const RadioContext = createContext<TRadioContextProps>({
@@ -24,8 +24,11 @@ export default function Radio({
     return { handleChange, label };
   }, [handleChange, label]);
 
-  const handleRadioChange: ComponentProps<"input">["onChange"] = (e) =>
-    handleChange({ value: e.currentTarget.value });
+  const handleRadioChange: ComponentProps<"input">["onChange"] = (e) => {
+    if (handleChange) {
+      handleChange({ value: e.currentTarget.value });
+    }
+  };
 
   return (
     <RadioContext.Provider value={contextValue}>
