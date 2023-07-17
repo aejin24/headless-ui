@@ -1,8 +1,10 @@
 import { createContext, PropsWithChildren, useState } from "react";
-import { modalList } from "../../utils/modal";
+import { modalList, ModalType } from "../../utils/modal";
+
+type TShow = <T>(type: ModalType, props?: T) => void;
 
 type TGlobalModalContextProps = {
-  show: (type: number, props?: {}) => void;
+  show: TShow;
   hide: () => void;
   store: {
     type: number;
@@ -25,7 +27,7 @@ export default function GlobalModal({ children }: PropsWithChildren) {
     props: {},
   });
 
-  const show = (type: number, props?: {}) => {
+  const show: TShow = (type, props) => {
     setStore({
       type,
       props: props || {},
