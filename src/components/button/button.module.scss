@@ -1,0 +1,225 @@
+.type1 {
+  > button {
+    width: 49.5%;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: -0.02em;
+    padding: 15px 0;
+    border-radius: 7px;
+  }
+
+  > button:nth-child(1) {
+    margin-right: 1%;
+  }
+}
+
+.buttonSettings {
+  background-color: transparent;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.default {
+  background-color: #ffffff;
+  border-color: #222222;
+  color: #222222;
+}
+
+.eventBtn {
+  background-color: none;
+  border: none;
+}
+
+.blue {
+  background-color: #004b87;
+  border-color: #004b87;
+  color: #ffffff;
+}
+
+.white {
+  background-color: #ffffff;
+  border-color: $pointColor;
+  color: $pointColor;
+}
+
+.black {
+  background-color: #222222;
+  border-color: #222222;
+  color: #ffffff;
+}
+
+.pointColor {
+  background-color: $pointColor;
+  border-color: $pointColor;
+  color: #fff;
+}
+
+.lightBlue {
+  background-color: #00a4d1;
+  border-color: #00a4d1;
+  color: #fff;
+}
+
+.skyBlue {
+  background-color: #ffffff;
+  border-color: #b8cddc;
+  color: #527894;
+}
+
+.darkBlue {
+  background-color: #527894;
+  border-color: #527894;
+  color: #ffffff;
+}
+
+.disabled {
+  background-color: #d9d9d9;
+  border-color: #d9d9d9;
+  color: #ffffff;
+}
+
+.red {
+  background-color: #ff3333;
+  border-color: #ff3333 !important;
+  color: #ffffff;
+}
+
+.plus {
+  position: relative;
+  border: 1px solid #bbbbbb;
+  background-color: #ffffff;
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    background: #bbbbbb;
+  }
+
+  &::before {
+    top: 50%;
+    transform: translateY(-50%);
+    left: 3px;
+    right: 3px;
+    height: 1px;
+  }
+
+  &::after {
+    left: 50%;
+    top: 3px;
+    bottom: 3px;
+    width: 1px;
+  }
+}
+
+.close {
+  position: relative;
+  background-color: #ffffff;
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    background: #bbb;
+  }
+
+  &::before {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    left: 5px;
+    right: 5px;
+    height: 1px;
+  }
+
+  &::after {
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    top: 5px;
+    bottom: 5px;
+    width: 1px;
+  }
+}
+
+.arrow-up,
+.arrow-down {
+  position: relative;
+  background-color: #ffffff;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 40%;
+    height: 40%;
+    margin: 0 auto;
+    border: 1px solid #bbbbbb;
+    position: absolute;
+  }
+}
+
+.arrow-down {
+  &::before {
+    transform: rotate(45deg) translateY(-50%);
+    margin-right: 30%;
+
+    border: {
+      top: none;
+      left: none;
+    }
+  }
+}
+
+.arrow-up {
+  &::before {
+    transform: rotate(45deg) translateY(-50%);
+    top: 50%;
+    margin-left: -30%;
+
+    border: {
+      bottom: none;
+      right: none;
+    }
+  }
+}
+
+.arrow {
+  margin-left: 5px;
+  display: inline-block;
+  background-color: inherit;
+  color: inherit;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    content: ">";
+    color: inherit;
+  }
+}
+
+.circle-arrow {
+  @extend .arrow;
+
+  border: {
+    color: inherit;
+    radius: 9999px;
+  }
+
+  border: 1px solid;
+  margin-left: 5px;
+}
+
+.download {
+  margin-left: 5px;
+  background: url(#{$cdnUrl}/free_lecture/download_white.png) no-repeat 0 0 /
+    contain;
+}
